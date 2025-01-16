@@ -22,7 +22,7 @@ public class AuthController(AppsContext appsContext, Appsettings appsettings) : 
                 return Json(new { success = false, message = "Username Already Registered" });
             }
 
-            var (isStrong, reason) = PasswordUtil.CheckPasswordStrength(request.Password);
+            var (isStrong, reason) = PasswordUtil.CheckStrength(request.Password);
             if (!isStrong)
             {
                 Response.StatusCode = 400;
